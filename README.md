@@ -13,6 +13,8 @@ In a few lines of the code, you can integrate AR reality experience in your web 
 
 This example project shows how to integrate **vidometer-viewer** into your web application.
 
+You can check [live example](https://bettar.life/viewer/).
+
 ### Installation
 
 Execute the following command in order to install dependencies:
