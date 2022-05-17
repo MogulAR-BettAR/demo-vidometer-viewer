@@ -1,4 +1,4 @@
-# vidometer-viewer v1.0.0
+# vidometer-viewer v1.0.1
 
 ![https://bettar.life/viewer/assets/vidometer-viewer.jpg](https://bettar.life/viewer/assets/vidometer-viewer.jpg)
 
@@ -72,7 +72,7 @@ In order to add vidometer-viewer on your site you need the following actions:
 ```tsx
 <head>
 	...
-	<script src="https://bettar.life/vidometry/vidometer-viewer.1.0.0.js"></script>
+	<script src="https://bettar.life/vidometry/vidometer-viewer.1.0.1.js"></script>
 	...
 </head>
 ```
@@ -93,7 +93,7 @@ In order to add vidometer-viewer on your site you need the following actions:
 1. Optionally you can add Google Analytics to the vidometer-viewer. In order to add this you need to add following attributes:
     1. **viewer-gid** - Google Analytics Tracking ID;
     2. **viewer-gpage** - name of page (optionally);
-    3. **viewer-glabel** - event label (optionally).
+        1. **viewer-glabel** - event label (optionally).
 
 ```tsx
 <div vidometer-viewer 
@@ -118,8 +118,8 @@ In order to add vidometer-viewer on your site you need the following actions:
 	viewer-gid="UA-XXXXXXXX-X" 
 	viewer-gpage="astro"
   glabel='{"category": "product", "label": "sku01"}'
-	viewer-position="0.2"
-	viewer-scale="0.5"
+	viewer-position="0.2 0 0"
+	viewer-scale="0.5 0.5 0.5"
 	viewer-rotation="0 90 0">
 
 	View in your space
@@ -128,6 +128,25 @@ In order to add vidometer-viewer on your site you need the following actions:
 ```
 
 ![https://bettar.life/viewer/assets/desktop.jpg](https://bettar.life/viewer/assets/desktop.jpg)
+
+1. Optionally you can show model position before starting experience. In order to do this you just need to add **viewer-preview** tag:
+    1. **viewer-preview** - show model location before starting experience.
+
+```tsx
+<div vidometer-viewer 
+	viewer-src="https://bettar.life/viewer/assets/astro.glb" 
+	viewer-gid="UA-XXXXXXXX-X" 
+	viewer-gpage="astro"
+  glabel='{"category": "product", "label": "sku01"}'
+	viewer-position="0.2 0 0"
+	viewer-scale="0.5 0.5 0.5"
+	viewer-rotation="0 90 0"
+	viewer-preview>
+
+	View in your space
+
+</div>
+```
 
 **Complete example:**
 
@@ -138,7 +157,7 @@ In order to add vidometer-viewer on your site you need the following actions:
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Vidometer Viewer Demo</title>
-  <script src="https://bettar.life/vidometry/vidometer-viewer.1.0.0.js"></script>
+  <script src="https://bettar.life/vidometry/vidometer-viewer.1.0.1.js"></script>
 </head>
 
 <body>
@@ -153,9 +172,10 @@ In order to add vidometer-viewer on your site you need the following actions:
 			viewer-gid="UA-XXXXXXXX-X" 
 			viewer-gpage="astro"
 		  glabel='{"category": "product", "label": "sku01"}'
-			viewer-position="0.2"
-			viewer-scale="0.5"
+			viewer-position="0.2 0 0"
+			viewer-scale="0.5 0.5 0.5"
 			viewer-rotation="0 90 0"
+			viewer-preview
 			style="position: absolute; right: 10px; top: 10px; border: 1px solid #444; border-radius: 10px; padding: 8px; background-color: #ffffffcc;">
 		
 			View in your space
@@ -187,6 +207,32 @@ In order to add vidometer-viewer on your site you need the following actions:
 
 </html>
 ```
+
+## API
+
+### Attributes
+
+**Viewer:**
+
+**vidometer-viewer** -  it indicates that this element is a trigger for launching the viewer. vidometer-viewer.js code is searching all elements with vidometer-viewer attributes and adding **onclick** event;
+
+**viewer-src** - it’s the source path to the 3D **GLB** file which you want to show;
+
+**viewer-position** - “x y z” shifting model by x, y, z axes (meters);
+
+**viewer-scale** - “sx sy sz” scaling model;
+
+**viewer-rotation** - “rx ry rz” rotation model by x, y, z axes (degrees).
+
+**viewer-preview** - show model location before starting experience.
+
+**Analytics:**
+
+**viewer-gid** - Google Analytics Tracking ID;
+
+**viewer-gpage** - name of page (optionally);
+
+**viewer-glabel** - event label (optionally).
 
 ## Troubleshooting, community
 
